@@ -34,13 +34,13 @@ export class SeoService{
 
    private setMetaDescription(description : string){
     this.metaDescription = this.getOrCreateMetaElement('description');
-    if(stringUtils.isnullOrEmty(description)){description = "Aqui você encontra as melhores apostas"}
+    if(stringUtils.isnullOrEmty(description)){description = "TV ao vivo grátis aqui tem acesse agora, futebol ao vivo"}
      this.metaDescription.setAttribute('content', description);
    }
 
    private setMetaKeywords(Keywords: string){
     this.metaKeywords = this.getOrCreateMetaElement('keywords');
-    if(stringUtils.isnullOrEmty(Keywords)){Keywords = "bet365,apostas,bet,mais1.5,betfair,robo de apostas "}
+    if(stringUtils.isnullOrEmty(Keywords)){Keywords = "TV online, tv grátis, futebol ao vivo de graça,tv fechada,canais,tvgrátis"}
      this.metaKeywords.setAttribute('content', Keywords);
    }
 
