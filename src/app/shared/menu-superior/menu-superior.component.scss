@@ -1,0 +1,67 @@
+/* navbar.component.scss */
+
+.navbar {
+    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .navbar-brand {
+    margin-right: 20px;
+  
+    .logo {
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
+  
+  .navbar-links {
+    .nav-link {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 10px;
+      padding: 5px;
+      border-radius: 3px;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: #555;
+      }
+  
+      &.active {
+        background-color: #555;
+      }
+    }
+  }
+  .ball {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background-color: black;
+    border-radius: 50%;
+  }
+
+  &::before {
+    top: 0;
+    left: 0;
+  }
+
+  &::after {
+    bottom: 0;
+    right: 0;
+  }
+}

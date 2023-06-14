@@ -1,0 +1,100 @@
+<h4 class="mt-5">Preencha corretamente os dados</h4>
+
+<form (ngSubmit)="adicionarEvento()" [formGroup]="timesForm">
+  <div class="form-horizontal">
+    <div class="alert alert-danger" *ngIf="errors.length > 0">
+      <h3 id="msgRetorno">Opa! Alguma coisa não deu certo:</h3>
+      <ul>
+        <li *ngFor="let error of errors">{{ error }}</li>
+      </ul>
+    </div>
+
+    <div class="form-group" [ngClass]="{'has-error': displayMessage['nome']}">
+      <label class="col-md-2 control-label" for="time1">Equipe 1</label>
+      <div class="col-md-10">
+        <input class="form-control" id="time1" type="text" placeholder="Equipe 1 (requerido)" formControlName="time1" />
+        <span class="text-danger">
+          <p [innerHTML]="displayMessage['nome']"></p>
+        </span>
+      </div>
+    </div>
+    <div class="login" *ngIf="isLoading">Carregando...</div>
+    <div class="form-group" [ngClass]="{'has-error': displayMessage['nome']}">
+      <label class="col-md-2 control-label" for="time2">Equipe 2</label>
+      <div class="col-md-10">
+        <input class="form-control" id="time2" type="text" placeholder="Equipe 2 (requerido)" formControlName="time2" />
+        <span class="text-danger">
+          <p [innerHTML]="displayMessage['nome']"></p>
+        </span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-offset-2 col-md-10">
+        <button class="btn btn-primary" type="submit">Buscar probalidade de gols</button>
+      </div>
+    </div>
+  </div>
+</form>
+<br/>
+<br/>
+
+<div *ngIf="!isLoading">
+  <div *ngIf="betResult" class="result-container">
+    <table class="result-table">
+      <tr>
+       
+        <th>Probability</th>
+        <th>Porcentagem</th>
+      </tr>
+      <tr>
+   
+        <td>Over 1.5:</td>
+        <td>{{ calculatedProbabilities.probabilityOver15 }}</td>
+      </tr>
+      <tr>
+  
+        <td>Over 2.5:</td>
+        <td>{{ calculatedProbabilities.probabilityOver25 }}</td>
+      </tr>
+      <tr>
+       
+        <td>Under 3.5:</td>
+        <td>{{ calculatedProbabilities.probabilityUnder35 }}</td>
+      </tr>
+      <tr>
+       
+        <td>Under 4.5:</td>
+        <td>{{ calculatedProbabilities.probabilityUnder45 }}</td>
+      </tr>
+      <tr>
+       
+        <td>Under 1.5:</td>
+        <td>{{ calculatedProbabilities.probabilityUnder15 }}</td>
+      </tr>
+      <tr>
+        
+        <td>Over 0.5:</td>
+        <td>{{ calculatedProbabilities.probabilityOver05 }}</td>
+      </tr>
+      <tr>
+       
+        <td>Over 3.5:</td>
+        <td>{{ calculatedProbabilities.probabilityOver35 }}</td>
+      </tr>
+      <tr>
+        
+        <td>Over 4.5:</td>
+        <td>{{ calculatedProbabilities.probabilityOver45 }}</td>
+      </tr>
+      <tr>
+     
+        <td>Under 2.5:</td>
+        <td>{{ calculatedProbabilities.probabilityUnder25 }}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+<br/>
+<br/>
+
